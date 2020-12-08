@@ -12,13 +12,21 @@ class XiaojiejieItem extends Component {
     }
     //组件第一次存在dom中，函数是不会被执行
     //已经存在dom中，修改了才可以执行
-    componentWillReceiveProps() {
-         console.log("c-child-componentWillReceiveProps")
-    }
-    componentWillUnmount(){
-        console.log("c-child-componentWillUnmount")
+    // componentWillReceiveProps() {
+    //      console.log("c-child-componentWillReceiveProps")
+    // }
+    // componentWillUnmount(){
+    //     console.log("c-child-componentWillUnmount")
+    // }
+    shouldComponentUpdate(nextProps, nextState) { //必须返回 布尔值 --用于优化性能
+        if (nextProps.content !== this.props.content) {
+            return true
+        } else {
+            return false
+        }
     }
     render() {
+        console.log("我执行了")
         return ( <li 
                     onClick = {this.handClick} > 
                    {this.props.xjjName} -{this.props.content} 

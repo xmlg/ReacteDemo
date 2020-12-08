@@ -1,1 +1,7 @@
 .input{border:3px solid #ae7777}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
